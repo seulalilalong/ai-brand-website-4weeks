@@ -699,17 +699,6 @@ a,button{touch-action:manipulation}
   
   #s6 .weeks,#s8 .vs-row{margin-top:32px}
   
-  #s6 .weeks{position:relative;gap:0;padding-left:30px;text-align:left}
-  #s6 .weeks::before{content:"";position:absolute;left:7px;top:6px;bottom:var(--tail,24px);width:1.5px;background:var(--s200)}   
-  #s6 .week{position:relative;margin:0;padding:0 0 32px;border:0;border-radius:0;background:none;text-align:left}
-  #s6 .week:last-child{padding-bottom:0}
-  #s6 .week::before{content:"";position:absolute;left:-30px;top:3px;width:15px;height:15px;border-radius:50%;background:var(--white);box-shadow:inset 0 0 0 1.5px var(--ink)}
-  #s6 .week:last-child::before{background:var(--ink)}
-  #s6 .week .wk{color:var(--ink);font-weight:600}
-  #s6 .week .h3{margin:6px 0 0;font-size:19px;line-height:27px}
-  #s6 .week .down{display:none}
-  #s6 .week .cell{margin-top:12px;text-align:left}
-  #s6 .week .cell::before{content:"남는 것";display:block;margin-bottom:2px;font-size:12px;line-height:18px;font-weight:500;color:var(--s600)}
   #s6 .docs{margin-top:32px}
   .docs span{font-size:12px}
   .vs{padding:20px 18px}
@@ -781,15 +770,6 @@ html.mo .memo.in::before{opacity:.9;scale:1 1;transition:opacity .2s ease calc(v
   html.mo [data-rise],html.mo .memo{translate:none;rotate:none}
   html.mo [data-rise].in,html.mo .memo.in{transition:opacity .3s ease}
   html.mo .memo::before,html.mo .memo.in::before{scale:none;transition:opacity .3s ease}
-}
-#s6 .wline{display:none}
-@media (max-width:599px){
-  
-  #s6 .wline{display:block;position:absolute;left:7px;top:6px;bottom:24px;width:1.5px;background:var(--ink);transform-origin:50% 0;transform:scaleY(0)}
-  html:not(.mo) #s6 .wline{display:none}
-  html.mo #s6 .week::before,html.mo #s6 .week:last-child::before{background:var(--white);box-shadow:inset 0 0 0 1.5px var(--ink),inset 0 0 0 4px var(--white),inset 0 0 0 4px var(--ink);transition:box-shadow .3s var(--ease-out)}
-  html.mo #s6 .week.on::before{box-shadow:inset 0 0 0 1.5px var(--ink),inset 0 0 0 4px var(--white),inset 0 0 0 7.5px var(--ink)}
-  html.mo #s6 .week.on:last-child::before{box-shadow:inset 0 0 0 1.5px var(--ink),inset 0 0 0 1.5px var(--ink),inset 0 0 0 7.5px var(--ink)}
 }
 @media (max-width:599px) and (prefers-reduced-motion:reduce){
   .mbar{transform:none;opacity:0;transition:opacity .2s ease,visibility 0s linear .2s}
@@ -1096,19 +1076,6 @@ html.mo .memo.in::before{opacity:.9;scale:1 1;transition:opacity .2s ease calc(v
   els.forEach(function(e){io.observe(e)});
   var mio=new IntersectionObserver(function(es){var n=0;es.forEach(function(en){if(en.isIntersecting){en.target.style.setProperty('--d',(n++*90)+'ms');en.target.classList.add('in');mio.unobserve(en.target)}})},{rootMargin:'0px 0px -12% 0px'});
   [].forEach.call(document.querySelectorAll('.memo'),function(m){mio.observe(m)});
-  var wk=document.querySelector('#s6 .weeks');
-  if(wk){
-    var line=document.createElement('span');line.className='wline';line.setAttribute('aria-hidden','true');wk.insertBefore(line,wk.firstChild);
-    var weeks=[].slice.call(wk.querySelectorAll('.week')),last=weeks[weeks.length-1],phone=matchMedia('(max-width:599px)'),ticking=false,len=1;
-    var size=function(){len=Math.max(1,last.offsetTop+4.5);var t=(wk.offsetHeight-last.offsetTop-10.5)+'px';line.style.bottom=t;if(phone.matches)wk.style.setProperty('--tail',t);else wk.style.removeProperty('--tail')};
-    var draw=function(){ticking=false;if(!phone.matches)return;
-      var r=wk.getBoundingClientRect(),p=calm?1:Math.max(0,Math.min(1,(innerHeight*.72-r.top)/len));
-      line.style.transform='scaleY('+p.toFixed(4)+')';
-      weeks.forEach(function(w){w.classList.toggle('on',p*len>=w.offsetTop+4.5-.5)});
-    };
-    if(!calm)addEventListener('scroll',function(){if(phone.matches&&!ticking){ticking=true;requestAnimationFrame(draw)}},{passive:true});
-    addEventListener('resize',function(){size();draw()});size();draw();
-  }
 })();
 (function(){
   var vids=[].slice.call(document.querySelectorAll('video.mv'));
