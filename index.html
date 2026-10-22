@@ -146,6 +146,11 @@ h1,h2,h3{margin:0;font-weight:600}
 .vs .down{color:var(--s400)}
 .vs .me{color:var(--white);font-size:var(--fs-cell);line-height:var(--lh-cell);font-weight:500}
 
+.vs .alone::before,.vs .me::before{display:block;width:fit-content;margin:0 auto 8px;padding:3px 10px;border-radius:var(--r-pill);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.2px}
+.vs .alone::before{content:"혼자 맡기면";box-shadow:inset 0 0 0 1px var(--s600);color:var(--s400)}
+.vs .me{margin-top:16px;padding-top:16px;border-top:1px solid var(--s700)}
+.vs .me::before{content:"이 과정에서는";background:var(--white);color:var(--ink)}
+
 .faq{display:grid;grid-template-columns:1fr;gap:16px;max-width:600px;margin:40px auto 0}
 .faq .card{margin:0;text-align:left}
 .faq-q{font-size:var(--fs-h3);line-height:var(--lh-h3);font-weight:600;letter-spacing:-0.6px;color:var(--ink)}
@@ -936,10 +941,10 @@ html.mo .memo.in::before{opacity:.9;scale:1 1;transition:opacity .2s ease calc(v
 
 <section class="sec bg-dark" id="s8">
   <span class="tag">무엇이 다른가요</span>
-  <h2 class="h2"><span class="lt">혼자 AI에게 맡길 때</span><span class="bd">이 과정에서는</span></h2>
-  <div class="vs-row"><div class="vs"><h3 class="h3">순서</h3><p class="alone">목차 없이<br>그림부터</p><span class="down"></span><p class="me">목차가 그림보다 먼저.<br>디자인상을 받은 사이트들이 거치는 순서를 빌려 갑니다</p></div>
-  <div class="vs"><h3 class="h3">움직임</h3><p class="alone">「움직이게 해 줘」</p><span class="down"></span><p class="me">목적 · 속도 · 반응 · 끝 모습을<br>정해서 건넵니다</p></div>
-  <div class="vs"><h3 class="h3">확인</h3><p class="alone">「된 것 같아요」</p><span class="down"></span><p class="me">AI가 화면을 열고 눌러 본 뒤<br>확인한 것과 못 한 것을 나눠 말합니다</p></div></div>
+  <h2 class="h2"><span class="lt">같은 AI인데,</span><span class="bd">결과가 달라지는 세 가지</span></h2>
+  <div class="vs-row"><div class="vs"><h3 class="h3">순서</h3><p class="alone">목차 없이<br>그림부터</p><p class="me">목차가 그림보다 먼저.<br>디자인상을 받은 사이트들이 거치는 순서를 빌려 갑니다</p></div>
+  <div class="vs"><h3 class="h3">움직임</h3><p class="alone">「움직이게 해 줘」</p><p class="me">목적 · 속도 · 반응 · 끝 모습을<br>정해서 건넵니다</p></div>
+  <div class="vs"><h3 class="h3">확인</h3><p class="alone">「된 것 같아요」</p><p class="me">AI가 화면을 열고 눌러 본 뒤<br>확인한 것과 못 한 것을 나눠 말합니다</p></div></div>
 </section>
 
 <section class="sec bg-100" id="vsfirm">
