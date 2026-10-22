@@ -477,6 +477,11 @@ img,video{display:block;max-width:100%}
 .t-price{margin-top:6px;font-size:56px;line-height:60px;font-weight:600;letter-spacing:-1.6px;font-variant-numeric:tabular-nums;color:var(--ink)}
 .t-price span{font-size:24px;letter-spacing:0;margin-left:2px}
 .t-per{margin-top:12px;color:var(--ink);font-weight:500}
+
+.t-gets-k{margin-top:16px;font-size:var(--fs-small);line-height:var(--lh-small);color:var(--s600)}
+.t-gets{display:inline-grid;gap:6px;margin:10px auto 0;padding:0;list-style:none;text-align:left}
+.t-gets li{display:grid;grid-template-columns:auto 1fr;column-gap:8px;color:var(--ink);font-weight:500}
+.t-gets li::before{content:"—";color:var(--s400)}
 .t-cut{position:relative;height:0;margin:0 32px;border-top:1.5px dashed var(--s200)}
 .t-cut::before,.t-cut::after{content:"";position:absolute;top:-14px;width:28px;height:28px;border-radius:50%;background:var(--s100)}
 .t-cut::before{left:-46px}.t-cut::after{right:-46px}
@@ -954,7 +959,7 @@ html.mo .memo.in::before{opacity:.9;scale:1 1;transition:opacity .2s ease calc(v
   <h2 class="h2"><span class="lt">홈페이지 업체와</span><span class="bd">나란히 놓으면</span></h2>
   <div class="cmp">
     <div class="cmp-row cmp-head"><span></span><span>업체에 맡길 때</span><span>이 과정에서</span></div>
-    <div class="cmp-row"><p class="cmp-k">처음 만들 때</p><p class="cmp-a">80만~300만 원<small>맞춤 개발 기준</small></p><p class="cmp-b">수강료 20만 원<small>+ Claude Pro 월&nbsp;20달러 · 도메인 연&nbsp;2~3만&nbsp;원</small></p></div>
+    <div class="cmp-row"><p class="cmp-k">처음 만들 때</p><p class="cmp-a">80만~300만 원<small>맞춤 개발 기준</small></p><p class="cmp-b">수강료 30만 원<small>+ Claude Pro 월&nbsp;20달러 · 도메인 연&nbsp;2~3만&nbsp;원</small></p></div>
     <div class="cmp-row"><p class="cmp-k">글 · 사진 바꿀 때</p><p class="cmp-a">수정 요청 한 건에 평균 20만 원<small>10만~45만&nbsp;원 · 업체 일정에 맞춰 기다림</small></p><p class="cmp-b">관리자 화면에서 내가 직접, 바로<small>관리자 화면은 수료&nbsp;선물로 드립니다</small></p></div>
     <div class="cmp-row"><p class="cmp-k">시즌 · 이벤트마다</p><p class="cmp-a">새로 견적을 받고 다시 맡기기</p><p class="cmp-b">디자인을 그때그때 바꾸기<small>AI에게 말로 · 규칙&nbsp;한&nbsp;장은 그대로</small></p></div>
     <div class="cmp-row"><p class="cmp-k">디자인 고르기</p><p class="cmp-a">업체 시안 가운데서</p><p class="cmp-b">고르는 판에서 내 취향대로</p></div>
@@ -990,8 +995,15 @@ html.mo .memo.in::before{opacity:.9;scale:1 1;transition:opacity .2s ease calc(v
   <div class="ticket">
     <div class="t-top">
       <p class="small">수강료</p>
-      <p class="t-price">200,000<span>원</span></p>
-      <p class="t-per">4회 · 8시간 — 한 번에 5만 원</p>
+      <p class="t-price">300,000<span>원</span></p>
+      <p class="t-gets-k">이 값에 들어 있는 것</p>
+      <ul class="t-gets">
+        <li>Zoom 실시간 수업 4회(8시간)</li>
+        <li>내 자료로 미리 지은 고르는 판 · 프롬프트 판</li>
+        <li>개강 전 설치 안내 PDF</li>
+        <li>수업 녹화본 4편</li>
+        <li>관리자 화면(수료 선물)</li>
+      </ul>
     </div>
     <div class="t-cut" aria-hidden="true"></div>
     <dl class="t-info">
