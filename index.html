@@ -851,8 +851,12 @@ addEventListener('load',function(){if(!location.hash)scrollTo(0,0)});
   <p class="lead">각 목차별로 내가 원하는 레이아웃을 선택해<br> 내 사이트의 기준을 만듭니다.</p>
   <figure class="frame board" data-move="board">
     <div class="bar"><i></i><i></i><i></i><b></b></div>
-    <video class="mv" data-anim="media/board.webp" src="media/board.mp4" poster="media/board.jpg" autoplay muted loop playsinline preload="metadata"></video>
-    <img class="st" src="media/board.jpg" alt="고르는 판 화면 — 카드마다 전체 무드·첫 화면·넣고 싶은 요소·이건 싫다 단추">
+    
+    <video class="mv" data-anim="media/board.webp" data-anim-m="media/board-m.webp" poster="media/board.jpg" autoplay muted loop playsinline preload="metadata">
+      <source src="media/board-m.mp4" media="(max-width:599px)" type="video/mp4">
+      <source src="media/board.mp4" type="video/mp4">
+    </video>
+    <picture><source media="(max-width:599px)" srcset="media/board-m.jpg"><img class="st" src="media/board.jpg" alt="고르는 판 화면 — 카드마다 전체 무드·첫 화면·넣고 싶은 요소·이건 싫다 단추"></picture>
   </figure>
   <p class="small cap">고르는 판 화면 · 견본 카드는<br class="m-br"> HTML5 UP(html5up.net) 무료 템플릿 · CC BY 3.0</p>
   <div class="steps3">
@@ -1086,9 +1090,9 @@ addEventListener('load',function(){if(!location.hash)scrollTo(0,0)});
     setTimeout(function(){var box=v.closest('.screen,.vp-vid,.board');if(v._want&&v.paused&&box&&!box.classList.contains('playing'))block(v)},2500)};
   var block=function(v){
     var box=v.closest('.screen,.vp-vid,.board');if(!box||box.classList.contains('playing')||box.classList.contains('anim'))return;
-    var a=v.getAttribute('data-anim'),st=box.querySelector('img.st');
+    var a=(matchMedia('(max-width:599px)').matches&&v.getAttribute('data-anim-m'))||v.getAttribute('data-anim'),st=box.querySelector('img.st');
     if(a&&st&&!v._animTried){v._animTried=1;var im=new Image();
-      im.onload=function(){st.src=a;box.classList.add('anim');box.classList.remove('blocked')};
+      im.onload=function(){var pic=st.parentNode;if(pic&&pic.tagName==='PICTURE')[].slice.call(pic.querySelectorAll('source')).forEach(function(x){pic.removeChild(x)});st.src=a;box.classList.add('anim');box.classList.remove('blocked')};
       im.onerror=function(){button(v,box)};im.src=a;return}
     button(v,box);
   };
