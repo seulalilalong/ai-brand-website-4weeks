@@ -667,12 +667,8 @@ a,button{touch-action:manipulation}
   #board .lead{text-wrap:balance}
   .board{margin-top:28px}
   
-  .steps3{display:block;margin:24px 0 0;text-align:center;text-wrap:balance}
-  .steps3 figure{display:inline;margin:0}
-  .steps3 .shot{display:none}
-  .steps3 figcaption{display:inline;margin:0;font-size:15px;line-height:26px;font-weight:500;color:var(--ink);white-space:nowrap}   
-  .steps3 figcaption br{display:none}
-  .steps3 figure + figure figcaption::before{content:"→\00a0";margin-left:.35em;color:var(--s400)}
+  .steps3{grid-template-columns:repeat(3,1fr);gap:8px;margin-top:24px}
+  .steps3 figcaption{margin-top:8px;font-size:12px;line-height:17px;font-weight:500;text-align:center;color:var(--ink)}
 
   
   .skill4{grid-template-columns:1fr;gap:0;margin-top:32px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
